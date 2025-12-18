@@ -31,4 +31,21 @@ function stopRecurringTimer(timerId) {
   // Stop the timer using clearInterval
 }
 
+module.exports = { recurringTimer, stopRecurringTimer };let timerId = null;
+
+function recurringTimer(message, interval) {
+  timerId = setInterval(() => {
+    console.log(message);
+  }, interval);
+
+  return timerId;
+}
+
+function stopRecurringTimer() {
+  if (timerId) {
+    clearInterval(timerId);
+    timerId = null;
+  }
+}
+
 module.exports = { recurringTimer, stopRecurringTimer };
